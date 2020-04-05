@@ -1,0 +1,25 @@
+Description: We are creating a simple Makefile (no cmake).
+
+If we were not using a makefile, we would have had to manually compile and generate an executable using these commands:
+    g++ -c -I inc/ src/main.cpp 
+    g++ -o main.o -c -I inc/ src/main.cpp 
+    g++ -o add.o -c -I inc/ src/add.cpp 
+    g++ -o sub.o -c -I inc/ src/sub.cpp 
+    g++ -o app main.o add.o sub.o
+
+However, if we use a Makefile, this process becomes a lot easier.
+
+At the top of Makefile, we have defined global variables for the different directories used.
+
+Next, we have defined targets and their dependencies. For example, the target 'app' is the executable, and
+its dependencies are main.o, add.o, and sub.o. The command to generate the executable is:
+    g++ -o $build/app $build/main.o $build/sub.o $build/add.o
+Rather than manually typing this command, make does it for us.
+
+Another target is called clean. It does not have any dependencies. We can add commands to clean, such as rm -rf and ls -la.
+This way, when make clean is called, it deleted the build directory and lists the contents of the current folder
+
+
+
+
+    
