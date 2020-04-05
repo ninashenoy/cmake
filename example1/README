@@ -1,0 +1,29 @@
+Description:
+------------
+This folder contains 4 different projects (add,sub,mult,div) and builds them using cmake
+
+1. Build all projects
+cd example1
+mkdir build
+cd build
+cmake ../
+make
+
+This generates the build artifacts for all 4 projects
+
+2. Build projects one at a time
+cd example1
+mkdir build
+cmake ../
+make <target> example.) make add
+
+This generates the build artifacts for the specified project (add)
+
+3. Clean
+rm -rf the build directory
+OR
+make clean
+
+This gets rid of the build artifacts for all 4 projects
+
+

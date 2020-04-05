@@ -1,0 +1,40 @@
+Description:We are going to generate a library and an executable. The executable will import the functions exported by the library.
+
+1. First, we create two directories 'lib' and 'app'. 'lib' contains the code for our library. The cmake target for our library is called 'math'.
+    cd example3
+    mkdir lib
+    mkdir app
+
+2. In 'lib', create directories 'inc' and 'src'. 'src' will contain function 
+   implementations for add and subtract and 'inc' will include function headers. The library will export two fuctions: add and sub
+    cd lib
+    mkdir src
+    mkdir inc
+
+3. In 'lib' make a CMakeLists.txt file with add_library with 'math' as the target and the .cpp files from 'src'
+    add_library(math add.cpp sub.cpp)
+   Be sure to include the directory 'inc'
+    include_directories(math PUBLIC inc)
+
+4. In the directory 'app', create a 'main.cpp' file to test the functions from 'lib' (add, sub).
+   Create a CMakeLists.txt to create an executable called 'app'. Also make sure to link the library
+   'math' to 'app' and include directory 'inc'
+    add_executable(app main.cpp)
+    target_link_libraries(app PUBLIC math) - this will link the library and also resolve any inclue issues (library includes)
+
+5. In the root directory (example3), we will create another CMakeLists.txt. This file will make sure to add
+   the subdirectories 'app' and 'lib;
+    add_subdirectory(app)
+    add_subdirectory(lib)
+
+6. Finally, we will build the library. In 'example3' create a directory called 'build'. In this directory,
+   call cmake .
+    mkdir build
+    cd build
+    cmake ../
+    make
+
+   After running make, you will see that the first thing to be built is the library 'math'. This is because 'app' needs it to run
+   so it will be build first. The output from building the library is a file called 'libmath.a' Next, the executable 'app' 
+   is built, and linked to the target library 'math'. If you cd to the newly build 'app' directory and run ./app, you will
+   see the output of the functions in 'math'.
