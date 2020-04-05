@@ -38,3 +38,5 @@ Description:We are going to generate a library and an executable. The executable
    so it will be build first. The output from building the library is a file called 'libmath.a' Next, the executable 'app' 
    is built, and linked to the target library 'math'. If you cd to the newly build 'app' directory and run ./app, you will
    see the output of the functions in 'math'.
+   
+   NOTE: Everytime you change a file, you have to do cmake . again
