@@ -1,0 +1,25 @@
+Description:
+-------------
+In this folder, we are using cmake on files that are in different directories.
+
+In the 'src' folder, we have our source (.cpp) files.
+In the 'inc' folder, we have our header (.h) files to be included.
+
+In order to build our project with both .cpp and .h files, we have to modify our CMakeLists.txt file
+In the add_executable macro, we must provide the .cpp files by including the directory they are in:
+    src/add.cpp
+    src/sub.cpp
+    src/main.cpp
+
+Next, we must add the macro target_include_directories and provide it with the target, scope keyword, and directory we are using
+    math, PUBLIC, inc
+
+ 
+Now create a build directory
+mkdir build
+cd build
+cmake 3 ../
+make
+
+The executable 'math' should be present
+./math to run the program
