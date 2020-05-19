@@ -1,7 +1,6 @@
 Description: We are creating a simple Makefile (no cmake).
 
 If we were not using a makefile, we would have had to manually compile and generate an executable using these commands:
-    g++ -c -I inc/ src/main.cpp 
     g++ -o main.o -c -I inc/ src/main.cpp 
     g++ -o add.o -c -I inc/ src/add.cpp 
     g++ -o sub.o -c -I inc/ src/sub.cpp 
